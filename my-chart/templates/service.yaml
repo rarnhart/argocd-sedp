@@ -7,6 +7,11 @@ spec:
   selector:
     app: trivial-go-web-app
   ports:
-    - protocol: TCP
-      port: 80
-      targetPort: 8080
+  - name: http
+    protocol: TCP
+    port: 80
+    targetPort: 8080
+  - name: https
+    protocol: TCP
+    port: 443
+    targetPort: 8080
