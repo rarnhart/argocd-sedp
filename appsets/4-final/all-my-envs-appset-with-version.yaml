@@ -8,7 +8,7 @@ spec:
   goTemplateOptions: ["missingkey=error"]
   generators:
   - git:
-      repoURL: https://github.com/rarnhart/argocd-sedp
+      repoURL: https://github.com/rarnhart/argocd-sedp.git
       revision: HEAD
       files:
       - path: "appsets/4-final/env-config/**/config.json"       
