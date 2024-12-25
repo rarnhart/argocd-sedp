@@ -1,0 +1,26 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: qa-test-ingress
+  namespace: qa
+  annotations:
+    cert-manager.io/cluster-issuer: lets-encrypt-http-issuer
+    nginx.ingress.kubernetes.io/rewrite-target: /
+    nginx.ingress.kubernetes.io/ssl-passthrough: 'true'
+spec:
+  ingressClassName: nginx
+  tls:
+    - hosts:
+        - web-app.qa.sedp.tallturtle.network
+      secretName: tls-vcluster-platform
+  rules:
+    - host: web-app.qa.sedp.tallturtle.network
+      http:
+        paths:
+        - path: /
+          pathType: Prefix
+          backend:
+            service:
+              name: simple-service
+              port:
+                number: 443
