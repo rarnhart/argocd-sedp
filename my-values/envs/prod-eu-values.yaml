@@ -1,5 +1,5 @@
 # Kubernetes settings
-replicaCount: 8
+replicaCount: 4
 
 # Environment settings
 environment: prod-eu
