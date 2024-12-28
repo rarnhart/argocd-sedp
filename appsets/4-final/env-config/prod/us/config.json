@@ -1,5 +1,5 @@
 {
-    "env": "prod-us",
+    "env": "prod",
     "region": "us",
     "type": "prod",
     "version": "prod",
