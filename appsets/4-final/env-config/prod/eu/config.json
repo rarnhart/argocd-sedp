@@ -1,7 +1,0 @@
-{
-    "env": "prod-eu",
-    "region": "eu",
-    "type": "prod",
-    "version": "prod",
-    "chart": "0.1.0"
-  }

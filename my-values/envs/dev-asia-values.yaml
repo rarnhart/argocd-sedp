@@ -1,10 +1,13 @@
+# Kubernetes settings
+replicaCount: 1
+
 # Environment settings
-environment: integration-gpu
+environment: dev-asia
 
 # Application settings
-userInterfaceTheme: "light"
+userInterfaceTheme: "dark"
 cacheSize: "1024kb"
 gpuEnabled: "1"
-pageLimit: "50"
+pageLimit: "25"
 sorting: "Ascending"
 nBuckets: "42"

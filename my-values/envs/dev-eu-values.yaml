@@ -1,8 +1,8 @@
 # Kubernetes settings
-replicaCount: 4
+replicaCount: 1
 
 # Environment settings
-environment: prod-eu
+environment: dev-eu
 
 # Application settings
 userInterfaceTheme: "dark"

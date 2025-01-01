@@ -2,10 +2,10 @@
 replicaCount: 2
 
 # Environment settings
-environmentType: production
-paypalUrl: "production.paypal.com"
-dbUser: "prod_username"
-dbPassword: "prod_password"
+environmentType: development
+paypalUrl: "development.paypal.com"
+dbUser: "dev_username"
+dbPassword: "dev_password"
 
 
 
