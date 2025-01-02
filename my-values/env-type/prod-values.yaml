@@ -2,10 +2,10 @@
 replicaCount: 2
 
 # Environment settings
-environmentType: development
-paypalUrl: "development.paypal.com"
-dbUser: "dev_username"
-dbPassword: "dev_password"
+environmentType: staging
+paypalUrl: "staging.paypal.com"
+dbUser: "staging_username"
+dbPassword: "staging_password"
 
 
 
