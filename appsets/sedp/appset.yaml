@@ -11,7 +11,7 @@ spec:
       repoURL: https://github.com/rarnhart/argocd-sedp.git
       revision: HEAD
       files:
-      - path: "appsets/4-final/env-config/**/config.json"
+      - path: "appsets/sedp/env-config/**/config.json"
   template:
     metadata:
       name: '{{.env}}'
@@ -29,7 +29,7 @@ spec:
       sources:
         - repoURL: registry-1.docker.io/rarnhart
           chart: my-chart
-          targetRevision: 0.3.1
+          targetRevision: {{.chart}}
           helm:
             valueFiles:
             - $values/my-values/common-values.yaml
