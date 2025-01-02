@@ -19,6 +19,9 @@ spec:
         image: docker.io/kostiscodefresh/simple-env-app:{{ .Values.imageVersion }}
         ports:
         - containerPort: 8080
+        resources:
+          limits:
+            memory: 512Mi
         env:
         - name: ENV
           value: {{ quote .Values.environment }}
