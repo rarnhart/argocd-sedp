@@ -41,8 +41,8 @@ spec:
           targetRevision: HEAD
           ref: values
       destination:
-      {{- if eq .version "staging" }}
-        server: https://vcluster.sedp.tallturtle.network/kubernetes/project/webapp-staging/virtualcluster/argocd-target-staging
+      {{- if eq .version "dev" }}
+        server: https://vcluster.sedp.tallturtle.network/kubernetes/project/webapp-{{.version}}/virtualcluster/argocd-target-dev
       {{- else }}
         server: https://vcluster.sedp.tallturtle.network/kubernetes/project/webapp-{{.version}}/virtualcluster/argocd-target-{{.env}}
       {{- end }}
