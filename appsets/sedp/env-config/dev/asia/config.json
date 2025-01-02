@@ -3,5 +3,5 @@
     "region": "asia",
     "type": "non-prod",
     "version": "dev",
-    "chart": "0.3.1"
+    "chart": "0.3.2"
   }
