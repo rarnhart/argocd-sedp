@@ -1,0 +1,14 @@
+apiVersion: cert-manager.io/v1
+kind: ClusterIssuer
+metadata:
+  name: lets-encrypt-http-issuer
+spec:
+  acme:
+    email: rob@arnhart.com
+    server: https://acme-v02.api.letsencrypt.org/directory
+    privateKeySecretRef:
+      name: vcluster-platform-letsencrypt-credentials
+    solvers:
+    - http01:
+        ingress:
+          ingressClassName: nginx
