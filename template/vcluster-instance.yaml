@@ -1,8 +1,6 @@
 apiVersion: management.loft.sh/v1
 kind: VirtualClusterInstance
 metadata:
-  annotations:
-    loft.sh/non-deletable: 'true'
   name: argocd-target-staging-us
   namespace: p-webapp-staging
 spec:
@@ -18,8 +16,6 @@ spec:
 apiVersion: management.loft.sh/v1
 kind: VirtualClusterInstance
 metadata:
-  annotations:
-    loft.sh/non-deletable: 'true'
   name: argocd-target-staging-eu
   namespace: p-webapp-staging
 spec:
@@ -35,8 +31,6 @@ spec:
 apiVersion: management.loft.sh/v1
 kind: VirtualClusterInstance
 metadata:
-  annotations:
-    loft.sh/non-deletable: 'true'
   name: argocd-target-staging-asia
   namespace: p-webapp-staging
 spec:
