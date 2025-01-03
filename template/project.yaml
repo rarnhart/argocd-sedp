@@ -2,6 +2,7 @@ apiVersion: management.loft.sh/v1
 kind: Project
 metadata:
   name: webapp-staging
+  namespace: p-webapp-staging
   finalizers:
     - loft.sh/cleanup
     - loft.sh/cleanup-management
