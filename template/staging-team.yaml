@@ -6,7 +6,7 @@ metadata:
 spec:
   clusterRoles:
   - name: loft-management-admin
-  description: All users in this team have full admin access to all clusters
+  description: Staging Group
   displayName: SSO Group Staging
   groups:
   - staging
