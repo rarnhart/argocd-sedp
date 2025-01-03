@@ -1,0 +1,16 @@
+apiVersion: management.loft.sh/v1
+kind: VirtualClusterInstance
+metadata:
+  annotations:
+    loft.sh/non-deletable: 'true'
+  name: argocd-target-staging
+  namespace: p-webapp-staging
+spec:
+  templateRef:
+    name: virtual-cluster-template-production
+    version: 1.0.0
+  clusterRef:
+    cluster: sedp-staging
+  owner:
+    user: adminuser
+  displayName: argocd-target-staging
