@@ -1,5 +1,5 @@
-kind: Project
 apiVersion: management.loft.sh/v1
+kind: Project
 metadata:
   name: webapp-staging
   finalizers:

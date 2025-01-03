@@ -14,16 +14,16 @@ spec:
       - path: app.yaml
   template:
     metadata:
-      name: '{{.path.basename}}'
+      name: 'staging'
     spec:
       project: "default"
       source:
         repoURL: https://github.com/rarnhart/argocd-sedp.git
         targetRevision: staging-project
-        path: '{{.path.path}}'
+        path: project.yaml
       destination:
         server: https://kubernetes.default.svc
-        namespace: '{{.path.basename}}'
+        namespace: p-webapp-staging
       syncPolicy:
         syncOptions:
         - CreateNamespace=true
