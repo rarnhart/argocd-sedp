@@ -1,29 +1,14 @@
 apiVersion: argoproj.io/v1alpha1
-kind: ApplicationSet
+kind: Application
 metadata:
   name: staging-project
   namespace: argocd
 spec:
-  goTemplate: true
-  goTemplateOptions: ["missingkey=error"]
-  generators:
-  - git:
-      repoURL: https://github.com/rarnhart/argocd-sedp.git
-      revision: staging-project
-      files:
-      - path: app.yaml
-  template:
-    metadata:
-      name: 'staging'
-    spec:
-      project: "default"
-      source:
-        repoURL: https://github.com/rarnhart/argocd-sedp.git
-        targetRevision: staging-project
-        path: project.yaml
-      destination:
-        server: https://kubernetes.default.svc
-        namespace: p-webapp-staging
-      syncPolicy:
-        syncOptions:
-        - CreateNamespace=true
+  project: default
+  source:
+    repoURL: https://github.com/rarnhart/argocd-sedp.git
+    targetRevision: staging-project
+    path: 
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: staging-project
