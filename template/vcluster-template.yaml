@@ -1,0 +1,76 @@
+apiVersion: management.loft.sh/v1
+kind: VirtualClusterTemplate
+metadata:
+  name: virtual-cluster-template-production
+spec:
+  displayName: Virtual Cluster Template Production
+  description: This template deploys a virtual cluster in a staging and production project.
+  template:
+    metadata:
+      labels:
+        loft.sh/import-argocd: 'true'
+    instanceTemplate:
+      metadata: {}
+    apps:
+      - name: ingress-nginx
+        parameters: |
+          appValues: |-
+            controller:
+              ingressClassResource:
+                default: true
+              extraArgs:
+                enable-ssl-passthrough: "true"
+    pro:
+      enabled: true
+    helmRelease:
+      chart:
+        version: 0.21.2
+      values: >-
+        # Below you can configure the virtual cluster
+        controlPlane:
+          coredns:
+            embedded: true
+        sync:
+          fromHost:
+            ingressClasses:
+              enabled: true
+          toHost:
+            ingresses:
+              enabled: true
+    accessPoint:
+      ingress:
+        enabled: true
+    spaceTemplate:
+      metadata: {}
+  versions:
+    - template:
+        metadata:
+          labels:
+            loft.sh/import-argocd: 'true'
+        instanceTemplate:
+          metadata: {}
+        pro:
+          enabled: true
+        helmRelease:
+          chart:
+            version: 0.21.2
+          values: |
+            controlPlane:
+              coredns:
+                embedded: true
+            sync:
+              fromHost:
+                ingressClasses:
+                  enabled: true
+              toHost:
+                ingresses:
+                  enabled: true
+        accessPoint:
+          ingress:
+            enabled: true
+      version: 1.0.0
+  access:
+    - verbs:
+        - get
+      users:
+        - '*'
