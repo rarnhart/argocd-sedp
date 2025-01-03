@@ -9,17 +9,17 @@ spec:
   generators:
   - git:
       repoURL: https://github.com/rarnhart/argocd-sedp.git
-      revision: HEAD
-      directories:
-      - path: applicationset/examples/git-generator-directory/cluster-addons/*
+      revision: staging-project
+      directories: 
+      - path: app.yaml
   template:
     metadata:
       name: '{{.path.basename}}'
     spec:
-      project: "project"
+      project: "default"
       source:
         repoURL: https://github.com/rarnhart/argocd-sedp.git
-        targetRevision: HEAD
+        targetRevision: staging-project
         path: '{{.path.path}}'
       destination:
         server: https://kubernetes.default.svc
