@@ -3,7 +3,7 @@ kind: VirtualClusterInstance
 metadata:
   annotations:
     loft.sh/non-deletable: 'true'
-  name: argocd-target-staging
+  name: argocd-target-staging-us
   namespace: p-webapp-staging
 spec:
   templateRef:
@@ -13,4 +13,38 @@ spec:
     cluster: sedp-staging
   owner:
     user: adminuser
-  displayName: argocd-target-staging
+  displayName: argocd-target-staging-us
+---
+apiVersion: management.loft.sh/v1
+kind: VirtualClusterInstance
+metadata:
+  annotations:
+    loft.sh/non-deletable: 'true'
+  name: argocd-target-staging-eu
+  namespace: p-webapp-staging
+spec:
+  templateRef:
+    name: virtual-cluster-template-production
+    version: 1.0.0
+  clusterRef:
+    cluster: sedp-staging
+  owner:
+    user: adminuser
+  displayName: argocd-target-staging-eu
+---
+apiVersion: management.loft.sh/v1
+kind: VirtualClusterInstance
+metadata:
+  annotations:
+    loft.sh/non-deletable: 'true'
+  name: argocd-target-staging-asia
+  namespace: p-webapp-staging
+spec:
+  templateRef:
+    name: virtual-cluster-template-production
+    version: 1.0.0
+  clusterRef:
+    cluster: sedp-staging
+  owner:
+    user: adminuser
+  displayName: argocd-target-staging-asia
