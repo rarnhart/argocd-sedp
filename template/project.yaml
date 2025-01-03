@@ -16,12 +16,12 @@ spec:
     - name: '*'
   allowedTemplates:
     - kind: VirtualClusterTemplate
-      group: storage.loft.sh
+      group: management.loft.sh
       name: virtual-cluster-template-production
       isDefault: true
   members:
     - kind: Team
-      group: storage.loft.sh
+      group: management.loft.sh
       name: staging
       clusterRole: loft-management-project-admin
   access:
@@ -36,7 +36,7 @@ spec:
         - charts
         - runners
       teams:
-        - stage
+        - staging
     - name: loft-admin-access
       verbs:
         - get

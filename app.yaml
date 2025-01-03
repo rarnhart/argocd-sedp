@@ -8,7 +8,10 @@ spec:
   source:
     repoURL: https://github.com/rarnhart/argocd-sedp.git
     targetRevision: staging-project
-    path: 
+    path: ./template
   destination:
     server: https://kubernetes.default.svc
-    namespace: staging-project
+    namespace: argocd
+  syncPolicy:
+    syncOptions:
+    - CreateNamespace=true

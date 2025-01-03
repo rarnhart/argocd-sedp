@@ -1,0 +1,22 @@
+apiVersion: management.loft.sh/v1
+kind: Team
+metadata:
+  creationTimestamp: null
+  name: staging
+spec:
+  clusterRoles:
+  - name: loft-management-admin
+  description: All users in this team have full admin access to all clusters
+  displayName: SSO Group Staging
+  groups:
+  - staging
+  username: staging
+  access:
+  - name: loft-access
+    verbs:
+    - get
+    - bind
+    subresources:
+    - clusters
+    teams:
+    - prod
