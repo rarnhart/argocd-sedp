@@ -10,7 +10,7 @@ spec:
   - git:
       repoURL: https://github.com/rarnhart/argocd-sedp.git
       revision: staging-project
-      directories: 
+      files:
       - path: app.yaml
   template:
     metadata:
