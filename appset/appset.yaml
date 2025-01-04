@@ -11,7 +11,7 @@ spec:
       repoURL: https://github.com/rarnhart/argocd-sedp.git
       revision: HEAD
       files:
-      - path: "appsets/sedp/env-config/**/config.json"
+      - path: "appset/sedp/env-config/**/config.json"
   template:
     metadata:
       name: '{{.env}}'
@@ -32,11 +32,11 @@ spec:
           targetRevision: {{.chart}}
           helm:
             valueFiles:
-            - $values/my-values/common-values.yaml
-            - $values/my-values/app-version/{{.version}}-values.yaml
-            - $values/my-values/env-type/{{.type}}-values.yaml
-            - $values/my-values/regions/{{.region}}-values.yaml
-            - $values/my-values/envs/{{.env}}-values.yaml
+            - $values/appset/sedp/my-values/common-values.yaml
+            - $values/appset/sedp/my-values/app-version/{{.version}}-values.yaml
+            - $values/appset/sedp/my-values/env-type/{{.type}}-values.yaml
+            - $values/appset/sedp/my-values/regions/{{.region}}-values.yaml
+            - $values/appset/sedp/my-values/envs/{{.env}}-values.yaml
         - repoURL: 'https://github.com/rarnhart/argocd-sedp.git'
           targetRevision: HEAD
           ref: values
