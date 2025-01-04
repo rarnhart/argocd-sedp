@@ -1,7 +1,0 @@
-{
-    "env": "staging-eu",
-    "region": "eu",
-    "type": "prod",
-    "version": "staging",
-    "chart": "0.3.2"
-  }

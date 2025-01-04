@@ -1,0 +1,59 @@
+apiVersion: management.loft.sh/v1
+kind: Project
+metadata:
+  name: webapp-staging
+  namespace: p-webapp-staging
+  finalizers:
+    - loft.sh/cleanup
+    - loft.sh/cleanup-management
+spec:
+  displayName: WebApp Staging
+  owner:
+    user: adminuser
+  allowedClusters:
+    - name: sedp-staging
+  allowedRunners:
+    - name: '*'
+  allowedTemplates:
+    - kind: VirtualClusterTemplate
+      group: management.loft.sh
+      name: virtual-cluster-template-production
+      isDefault: true
+  members:
+    - kind: Team
+      group: management.loft.sh
+      name: staging
+      clusterRole: loft-management-project-admin
+  access:
+    - name: loft-access
+      verbs:
+        - get
+      subresources:
+        - members
+        - clusters
+        - templates
+        - chartinfo
+        - charts
+        - runners
+      teams:
+        - staging
+    - name: loft-admin-access
+      verbs:
+        - get
+        - update
+        - patch
+        - delete
+      subresources:
+        - '*'
+      users:
+        - adminuser
+  namespacePattern:
+    virtualCluster: loft-dev-{{.Values.loft.project}}-v-{{.Values.loft.name}}
+  argoCD:
+    enabled: true
+    cluster: loft-cluster
+    sso:
+      enabled: true
+      host: https://argocd.sedp.tallturtle.network
+      assignedRoles:
+        - role:admin
