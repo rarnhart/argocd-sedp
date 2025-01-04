@@ -1,0 +1,7 @@
+{
+    "env": "staging-asia",
+    "region": "asia",
+    "type": "prod",
+    "version": "staging",
+    "chart": "0.3.2"
+  }
