@@ -3,13 +3,15 @@ kind: Application
 metadata:
   name: staging-project
   namespace: argocd
+  labels:
+    type: vc-project
 spec:
   destination:
     server: https://kubernetes.default.svc
   source:
     repoURL: https://github.com/rarnhart/argocd-sedp.git
     targetRevision: HEAD
-    path: "staging/templates"
+    path: "staging-project/templates"
   project: default
   syncPolicy:
     automated:
