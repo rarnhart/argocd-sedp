@@ -1,5 +1,5 @@
 # Kubernetes settings
-replicaCount: 1
+#replicaCount: 1
 
 # Environment settings
 environment: staging-asia
