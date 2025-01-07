@@ -48,7 +48,7 @@ spec:
       users:
         - adminuser
   namespacePattern:
-    virtualCluster: loft-dev-{{.Values.loft.project}}-v-{{.Values.loft.name}}
+    virtualCluster: loft-staging-{{.Values.loft.project}}-v-{{.Values.loft.name}}
   argoCD:
     enabled: true
     cluster: loft-cluster
